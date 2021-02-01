@@ -14,6 +14,15 @@ services:
       - '8224:8224'
     networks:
       - axon-demo
+#  db:
+#    image: postgres:alpine
+#    container_name: axon-demo-db
+#    ports:
+#      - "2345:5432"
+#    environment:
+#      POSTGRES_USER: axondb
+#      POSTGRES_PASSWORD: axondb
+#      POSTGRES_DB: axondb
 
 volumes:
   axonserver-data:
