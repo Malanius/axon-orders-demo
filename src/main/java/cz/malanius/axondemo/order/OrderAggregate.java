@@ -7,7 +7,6 @@ import cz.malanius.axondemo.order.events.OrderConfirmedEvent;
 import cz.malanius.axondemo.order.events.OrderPlacedEvent;
 import cz.malanius.axondemo.order.events.OrderShippedEvent;
 import cz.malanius.axondemo.order.exceptions.UnconfirmedOrderException;
-import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
@@ -17,7 +16,7 @@ import org.axonframework.spring.stereotype.Aggregate;
 import static org.axonframework.modelling.command.AggregateLifecycle.apply;
 
 @Aggregate
-@NoArgsConstructor(access = AccessLevel.PROTECTED) // Default constructor required by Axon framework
+@NoArgsConstructor // Default constructor required by Axon framework
 public class OrderAggregate {
 
     @AggregateIdentifier
@@ -29,12 +28,13 @@ public class OrderAggregate {
         apply(OrderPlacedEvent.builder()
                 .orderId(command.getOrderId())
                 .product(command.getProduct())
-                .build());
+                .build()
+        );
     }
 
     @EventSourcingHandler
     public void on(OrderPlacedEvent event) {
-        this.orderId = event.getOrderId();
+        orderId = event.getOrderId();
         orderConfirmed = false;
     }
 
