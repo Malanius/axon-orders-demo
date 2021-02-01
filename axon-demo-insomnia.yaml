@@ -1,0 +1,105 @@
+_type: export
+__export_format: 4
+__export_date: 2021-02-01T16:56:35.093Z
+__export_source: insomnia.desktop.app:v2020.5.2
+resources:
+  - _id: req_517c69d6f59d4d9997aafb90bf3e8570
+    parentId: wrk_2de3f94318474af3b4be75d1da153a7c
+    modified: 1612197927900
+    created: 1612197915345
+    url: "{{ _.baseUrl }}/all-orders"
+    name: All products
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1612197915345
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_2de3f94318474af3b4be75d1da153a7c
+    parentId: null
+    modified: 1612197703713
+    created: 1612197703713
+    name: axon-demo
+    description: ""
+    scope: null
+    _type: workspace
+  - _id: req_74132fde97ac475ca83978d64aab88ae
+    parentId: wrk_2de3f94318474af3b4be75d1da153a7c
+    modified: 1612197866146
+    created: 1612197857435
+    url: "{{ _.baseUrl }}/ship-unconfirmed-order"
+    name: Ship unconfirmed order
+    description: ""
+    method: POST
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1612197857435
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_037c5ef0ddd141cea540fd695f0bcb03
+    parentId: wrk_2de3f94318474af3b4be75d1da153a7c
+    modified: 1612197769385
+    created: 1612197759849
+    url: "{{ _.baseUrl }}/ship-order"
+    name: Ship order
+    description: ""
+    method: POST
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1612197759849
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_2e66c1b3ec04e7aace7574782fe952ebae908fd9
+    parentId: wrk_2de3f94318474af3b4be75d1da153a7c
+    modified: 1612197744438
+    created: 1612197703782
+    name: Base Environment
+    data:
+      baseUrl: http://localhost:8080
+    dataPropertyOrder:
+      "&":
+        - baseUrl
+    color: null
+    isPrivate: false
+    metaSortKey: 1612197703782
+    _type: environment
+  - _id: jar_2e66c1b3ec04e7aace7574782fe952ebae908fd9
+    parentId: wrk_2de3f94318474af3b4be75d1da153a7c
+    modified: 1612197703783
+    created: 1612197703783
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_8b18189ae3164d8f8d00caf41a793ff2
+    parentId: wrk_2de3f94318474af3b4be75d1da153a7c
+    modified: 1612197703718
+    created: 1612197703718
+    fileName: axon-demo
+    contents: ""
+    contentType: yaml
+    _type: api_spec
