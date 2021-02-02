@@ -30,17 +30,17 @@ public class OrderEndpoint {
     @PostMapping("/ship-order")
     public void shipOrder() {
         String orderId = UUID.randomUUID().toString();
-        commandGateway.send(PlaceOrderCommand.builder().orderId(orderId).product("Millennium Falcon").build());
-        commandGateway.send(ConfirmOrderCommand.builder().orderId(orderId).build());
-        commandGateway.send(ShipOrderCommand.builder().orderId(orderId).build());
+        commandGateway.sendAndWait(PlaceOrderCommand.builder().orderId(orderId).product("Millennium Falcon").build());
+        commandGateway.sendAndWait(ConfirmOrderCommand.builder().orderId(orderId).build());
+        commandGateway.sendAndWait(ShipOrderCommand.builder().orderId(orderId).build());
     }
 
     @PostMapping("/ship-unconfirmed-order")
     public void shipUnconfirmedOrder() {
         String orderId = UUID.randomUUID().toString();
-        commandGateway.send(PlaceOrderCommand.builder().orderId(orderId).product("Tie Fighter").build());
+        commandGateway.sendAndWait(PlaceOrderCommand.builder().orderId(orderId).product("Tie Fighter").build());
         // This throws an exception, as an Order cannot be shipped if it has not been confirmed yet.
-        commandGateway.send(ShipOrderCommand.builder().orderId(orderId).build());
+        commandGateway.sendAndWait(ShipOrderCommand.builder().orderId(orderId).build());
     }
 
     @GetMapping("/all-orders")
